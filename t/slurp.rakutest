@@ -4,6 +4,8 @@ use Test;
 
 my $p = run <./slurp t/ex1>, :out, :err;
 
+$p.sink;
+
 is $p.out.slurp, "this is the contents of ex1 ";
 
 done-testing;
