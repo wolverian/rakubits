@@ -4,7 +4,9 @@ use Test;
 
 my $p = run <./slurp t/ex1>, :out, :err;
 
-$p.sink;
+unless $p {
+	bail-out "./slurp t/ex1 error: {$p.err.slurp}";
+}
 
 is $p.out.slurp, "this is the contents of ex1 ";
 
