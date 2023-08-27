@@ -16,5 +16,6 @@ jobs:
       - name: Check all scripts compile
         run: |
           for script in *; do
+            echo $script
             raku -c $script
           done
