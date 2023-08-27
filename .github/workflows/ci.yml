@@ -16,8 +16,10 @@ jobs:
       - name: Check all scripts compile
         run: |
           for script in *; do
-            echo $script
-            raku -c $script
+            if [[ -f $script ]]; then
+              echo $script
+              raku -c $script
+            fi
           done
       - name: Run tests
         run: raku t/*.rakutest
